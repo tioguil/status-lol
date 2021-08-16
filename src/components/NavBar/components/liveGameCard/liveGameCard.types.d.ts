@@ -1,0 +1,100 @@
+export type LiveGameCardTypes = {
+  "id":string,
+  "startTime":string,
+  "state":string,
+  "type":string,
+  "league":{
+    "id":string,
+    "slug":string,
+    "name":string,
+    "image":string,
+    "priority":number
+  },
+  "streams":[
+    {
+      "parameter":string,
+      "locale":string,
+      "provider":string,
+      "countries":[
+        string
+      ],
+      "offset":number
+    },
+    {
+      "parameter":string,
+      "locale":string,
+      "provider":string,
+      "countries":[],
+      "offset":number
+    }
+  ],
+  "match"?:{
+    "games"?:MatchGames[]
+    "id":string,
+    "teams":[
+      {
+        "id":string,
+        "name":string,
+        "slug":string,
+        "code":string,
+        "image":string,
+        "result":{
+          "outcome":any,
+          "gameWins":number
+        },
+        "record":{
+          "wins":number,
+          "losses":number
+        }
+      },
+      {
+        "id":string,
+        "name":string,
+        "slug":string,
+        "code":string,
+        "image":string,
+        "result":{
+          "outcome":any,
+          "gameWins":number
+        },
+        "record":{
+          "wins":number,
+          "losses":number
+        }
+      }
+    ],
+    "strategy":{
+      "type":string,
+      "count":number
+    }
+  }
+}
+
+export type MatchGames = {
+  "number":number,
+  "id":string,
+  "state":string,
+  "teams":[
+    {
+      "id":string,
+      "side":string
+    }
+  ],
+  "vods":[
+    {
+      "id":string,
+      "parameter":string,
+      "locale":string,
+      "provider":string,
+      "offset":number,
+      "firstFrameTime":null,
+      "startMillis":null,
+      "endMillis":null
+    }
+  ]
+}
+
+export type LiveGamePropsTypes = {
+  event:LiveGameCardTypes,
+  setCurrentEvent:(currentEvent:LiveGameCardTypes) => any
+}

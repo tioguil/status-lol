@@ -1,0 +1,52 @@
+export type SchedulerGamePropsTypes = {
+  event:SchedulerGameCardTypes
+};
+
+export type SchedulerGameCardTypes = {
+  "startTime":string,
+  "state":string,
+  "type":string,
+  "blockName":string,
+  "league":{
+    "name":string,
+    "slug":string
+  },
+  "match":{
+    "id":string,
+    "flags":[
+
+    ],
+    "teams":[
+      {
+        "name":string,
+        "code":string,
+        "image":string,
+        "result":{
+          "outcome":string,
+          "gameWins":number
+        },
+        "record":{
+          "wins":number,
+          "losses":number
+        }
+      },
+      {
+        "name":string,
+        "code":string,
+        "image":string,
+        "result":{
+          "outcome":string,
+          "gameWins":number
+        },
+        "record":{
+          "wins":number,
+          "losses":number
+        }
+      }
+    ],
+    "strategy":{
+      "type":string,
+      "count":number
+    }
+  }
+};
